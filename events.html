@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>What’s On for Families | Bristol & Somerset Events | UK Parent Guide</title>
+  <meta name="description" content="Browse all upcoming family events in Bristol & Somerset. Filter by category and search. Updated daily.">
+
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <link rel="apple-touch-icon" href="./assets/favicon.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="canonical" id="canonical" href="#">
+  <meta property="og:site_name" content="UK Parent Guide — Bristol & Somerset">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="UK Parent Guide — Bristol & Somerset">
+  <meta name="twitter:description" content="Discover family-friendly events, classes, and days out across Bristol & Somerset. Updated daily.">
+  <meta property="og:image" content="./assets/favicon.png">
+  <meta name="twitter:image" content="./assets/favicon.png">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="" crossorigin=""/>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <img src="./assets/logo.png" alt="UK Parent Guide — Bristol & Somerset">
+      <div class="name">UK Parent Guide — Bristol & Somerset</div>
+    </div>
+    <nav class="nav" aria-label="Primary">
+      <a href="./index.html">Home</a>
+      <a href="./events.html" aria-current="page">Events</a>
+      <a href="#newsletter">Newsletter</a>
+    </nav>
+  </header>
+
+  <section class="section">
+    <div class="wrap">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="./index.html">Home</a> › <span>Events</span></nav>
+
+      <div class="filters">
+        <div class="row">
+          <input id="q" type="search" placeholder="Search events" aria-label="Search events">
+          <select id="area" aria-label="Area (by postcode)"> <option value="">All areas</option> </select>
+          <select id="cat" aria-label="Category"><option value="">All categories</option></select>
+          <button id="filterBtn" aria-label="Apply filters">Apply</button>
+        </div>
+        <div class="row">
+          <div class="range-wrap">
+            <input id="homePostcode" type="text" placeholder="Your postcode (e.g., BS1 1AA)" aria-label="Your postcode">
+            <label for="distance">Max distance</label>
+            <input id="distance" type="range" min="0" max="50" step="5" value="0">
+            <span><span id="distanceVal">0</span> miles</span>
+            <button id="setHome">Set</button>
+          </div>
+        </div>
+        <div class="row toggle-group" id="toggles">
+          <label class="toggle"><input type="checkbox" value="events" checked> Events</label>
+          <label class="toggle"><input type="checkbox" value="classes" checked> Classes</label>
+          <label class="toggle"><input type="checkbox" value="parks" checked> Parks</label>
+          <label class="toggle"><input type="checkbox" value="indoors" checked> Indoors</label>
+          <label class="toggle"><input type="checkbox" value="outdoors" checked> Outdoors</label>
+        </div>
+      </div>
+
+      <div class="cal-header" style="margin-top:14px">
+        <h1 style="margin:0">Calendar</h1>
+        <div>
+          <button id="prev" aria-label="Previous month">&larr; Prev</button>
+          <button id="next" aria-label="Next month">Next &rarr;</button>
+        </div>
+      </div>
+      <div id="calendar" class="calendar" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 style="margin:0 0 12px 0">All events</h2>
+      <div id="list" class="grid" style="margin-top:16px"></div>
+    </div>
+  </section>
+
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="sheet">
+      <button id="closeModal" class="close-btn">Close</button>
+      <h3 id="modalTitle" style="margin-top:0"></h3>
+      <div id="modalMeta" class="meta"></div>
+      <div id="map"></div>
+      <div id="modalDesc" style="margin-top:10px"></div>
+      <div id="modalLink" style="margin-top:10px"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>UK Parent Guide — Bristol & Somerset. Your go-to family hub for discovering the best local activities, classes, and events across Bristol and Somerset. Updated daily from trusted community listings and local partners.</p>
+    © <span id="year"></span> UK Parent Guide — Bristol & Somerset
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="" crossorigin=""></script>
+  <script src="./app.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

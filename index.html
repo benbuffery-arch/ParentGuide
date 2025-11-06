@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Family Events in Bristol & Somerset | UK Parent Guide</title>
+  <meta name="description" content="Discover family-friendly events, classes, and days out across Bristol & Somerset. Updated daily from trusted local sources. Plan affordable fun for kids of all ages.">
+
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <link rel="apple-touch-icon" href="./assets/favicon.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="canonical" id="canonical" href="#">
+  <meta property="og:site_name" content="UK Parent Guide — Bristol & Somerset">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="UK Parent Guide — Bristol & Somerset">
+  <meta name="twitter:description" content="Discover family-friendly events, classes, and days out across Bristol & Somerset. Updated daily.">
+  <meta property="og:image" content="./assets/favicon.png">
+  <meta name="twitter:image" content="./assets/favicon.png">
+
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <img src="./assets/logo.png" alt="UK Parent Guide — Bristol & Somerset">
+      <div class="name">UK Parent Guide — Bristol & Somerset</div>
+    </div>
+    <nav class="nav" aria-label="Primary">
+      <a href="./index.html">Home</a>
+      <a href="./events.html">Events</a>
+      <a href="#newsletter">Newsletter</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><span>Home</span></nav>
+      <h1>Family events in Bristol & Somerset</h1>
+      <p class="lead">Your local hub for kid‑friendly activities, free toddler groups, weekend festivals, and seasonal days out. Updated from a Google Sheet you control.</p>
+      <div class="searchbar" role="search">
+        <input id="q" type="search" placeholder="Search events, places, categories" aria-label="Search events">
+        <select id="cat" aria-label="Filter by category"><option value="">All categories</option></select>
+        <button id="findBtn" aria-label="Find events">Find</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 style="margin:0 0 12px 0">This week</h2>
+      <div id="cards" class="grid"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>UK Parent Guide — Bristol & Somerset. Your go-to family hub for discovering the best local activities, classes, and events across Bristol and Somerset. Updated daily from trusted community listings and local partners.</p>
+    © <span id="year"></span> UK Parent Guide — Bristol & Somerset
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="./app.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('findBtn').addEventListener('click', () => {
+      const q = document.getElementById('q').value.trim();
+      const c = document.getElementById('cat').value;
+      window.location.href = `events.html?q=${encodeURIComponent(q)}&cat=${encodeURIComponent(c)}`;
+    });
+  </script>
+</body>
+</html>
