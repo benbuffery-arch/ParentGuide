@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Events — UK Parent Guide — Bristol</title>
+  <link rel="stylesheet" href="./styles.css">
+  <meta name="description" content="Browse all upcoming family events in Bristol, United Kingdom.">
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <img src="./assets/logo.png" alt="UK Parent Guide Bristol logo" onerror="this.style.display='none'">
+      <div class="name">UK Parent Guide — Bristol</div>
+    </div>
+    <nav class="nav">
+      <a href="./index.html">Home</a>
+      <a href="./events.html">Events</a>
+      <a href="#newsletter">Newsletter</a>
+    </nav>
+  </header>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="cal-header">
+        <h2 style="margin:0">Calendar</h2>
+        <div>
+          <button id="prev">&larr; Prev</button>
+          <button id="next">Next &rarr;</button>
+        </div>
+      </div>
+      <div id="calendar" class="calendar" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 style="margin:0 0 12px 0">All events</h2>
+      <div class="searchbar">
+        <input id="q" type="search" placeholder="Search events">
+        <select id="cat"><option value="">All categories</option></select>
+        <button id="filterBtn">Apply</button>
+      </div>
+      <div id="list" class="grid" style="margin-top:16px"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © <span id="year"></span> UK Parent Guide — Bristol
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="./app.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

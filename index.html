@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>UK Parent Guide — Bristol</title>
+  <link rel="stylesheet" href="./styles.css">
+  <meta name="description" content="Family-friendly events, classes, and things to do in Bristol, United Kingdom.">
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <img src="./assets/logo.png" alt="UK Parent Guide Bristol logo" onerror="this.style.display='none'">
+      <div class="name">UK Parent Guide — Bristol</div>
+    </div>
+    <nav class="nav">
+      <a href="./index.html">Home</a>
+      <a href="./events.html">Events</a>
+      <a href="#newsletter">Newsletter</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <h1>Family events in Bristol</h1>
+      <p class="lead">A clean calendar of kid‑friendly events, groups, and days out across Bristol. Updated from a Google Sheet you control.</p>
+      <div class="searchbar">
+        <input id="q" type="search" placeholder="Search events, places, categories">
+        <select id="cat"><option value="">All categories</option></select>
+        <button id="findBtn">Find</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 style="margin:0 0 12px 0">This week</h2>
+      <div id="cards" class="grid"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © <span id="year"></span> UK Parent Guide — Bristol
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="./app.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('findBtn').addEventListener('click', () => {
+      const q = document.getElementById('q').value.trim();
+      const c = document.getElementById('cat').value;
+      window.location.href = `events.html?q=${encodeURIComponent(q)}&cat=${encodeURIComponent(c)}`;
+    });
+  </script>
+</body>
+</html>
